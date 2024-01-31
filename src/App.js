@@ -1,23 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import YouTube from "react-youtube";
 
 function App() {
+  // const videoId = "C6FdvC7NWjs";
+  const [link, setLink] = useState("");
+
+  const [videoId, setVideoId] = useState("");
+
+  console.log(videoId);
+  const opts = {
+    width: 500,
+    height: 300,
+    playerVars: {
+      autoplay: 1,
+    },
+  };
+
+  const handleReady = (event) => {
+    event.target.playVideo(); // Auto-play the video
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <div className="code-now-div">
+        <input onChange={(e) => setLink(e.target.value)} className="input-div" />
+        <button
+          onClick={() => {
+            setVideoId(link.split("=")[1]);
+          }}
+          className="input-button"
         >
-          Learn React
-        </a>
-      </header>
+          Search
+        </button>
+      </div>
+      <div className="App">
+        <YouTube videoId={videoId} opts={opts} onReady={handleReady} />
+        <YouTube videoId={videoId} opts={opts} onReady={handleReady} />{" "}
+        <YouTube videoId={videoId} opts={opts} onReady={handleReady} />{" "}
+        <YouTube videoId={videoId} opts={opts} onReady={handleReady} />{" "}
+        <YouTube videoId={videoId} opts={opts} onReady={handleReady} />{" "}
+        <YouTube videoId={videoId} opts={opts} onReady={handleReady} />{" "}
+        <YouTube videoId={videoId} opts={opts} onReady={handleReady} />{" "}
+        <YouTube videoId={videoId} opts={opts} onReady={handleReady} />{" "}
+        <YouTube videoId={videoId} opts={opts} onReady={handleReady} />{" "}
+        <YouTube videoId={videoId} opts={opts} onReady={handleReady} />{" "}
+        <YouTube videoId={videoId} opts={opts} onReady={handleReady} />{" "}
+        <YouTube videoId={videoId} opts={opts} onReady={handleReady} />{" "}
+        <YouTube videoId={videoId} opts={opts} onReady={handleReady} />{" "}
+        <YouTube videoId={videoId} opts={opts} onReady={handleReady} />{" "}
+        <YouTube videoId={videoId} opts={opts} onReady={handleReady} />{" "}
+      </div>
     </div>
   );
 }
